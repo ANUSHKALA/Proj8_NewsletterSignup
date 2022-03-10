@@ -1,0 +1,23 @@
+{
+  "name": "proj8_newslettersignup",
+  "version": "1.0.0",
+  "description": "A subscription page for a newsletter",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ANUSHKALA/Proj8_NewsletterSignup.git"
+  },
+  "author": "anushka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ANUSHKALA/Proj8_NewsletterSignup/issues"
+  },
+  "homepage": "https://github.com/ANUSHKALA/Proj8_NewsletterSignup#readme",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "express.js": "^1.0.0"
+  }
+}
