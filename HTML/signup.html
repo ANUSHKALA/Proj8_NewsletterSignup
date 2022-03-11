@@ -2,34 +2,32 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Simple Login Form Example</title>
+    <title>Login</title>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Rubik:400,700"
     />
-    <link rel="stylesheet" href="signin.css" />
+    <link rel="stylesheet" href="/CSS/signin.css" />
   </head>
   <body>
     <!-- partial:index.partial.html -->
     <div class="login-form">
       <form>
-        <h1>Login</h1>
+        <img src="/images/image.png" alt="an image">
+        <h1>Sign Up for the Newsletter!</h1>
         <div class="content">
           <div class="input-field">
-            <input type="email" placeholder="Email" autocomplete="nope" />
+            <input type="text" placeholder="First name" required />
           </div>
           <div class="input-field">
-            <input
-              type="password"
-              placeholder="Password"
-              autocomplete="new-password"
-            />
+            <input type="text" placeholder="Last name" required />
           </div>
-          <a href="#" class="link">Forgot Your Password?</a>
+          <div class="input-field">
+            <input type="email" placeholder="Email" required />
+          </div>
         </div>
         <div class="action">
-          <button>Register</button>
-          <button>Sign in</button>
+          <button>Sign Up</button>
         </div>
       </form>
     </div>
