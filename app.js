@@ -11,8 +11,9 @@ const aud_key = "27b317e5ad";
 const mailChimp = require("@mailchimp/mailchimp_marketing")
 const express = require("express");
 const bodyParser = require("body-parser");
-const request = require("request");
-const https = require("https");
+// const fetch = require("node-fetch");
+// const request = require("request");
+// const https = require("https");
 
 
 const path = require("path");
@@ -31,9 +32,7 @@ app.get("/",function (req,res) {
 });
 
 app.post("/post",(req,res) => {
-
-    console.log("HIs majesty is listening!")
-    
+   
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
     const email = req.body.email;
@@ -43,44 +42,28 @@ app.post("/post",(req,res) => {
             {
                 email_address : email,
                 status : "subscribed",
+                merge_fields: {
+                    FNAME : firstName,
+                    LNAME : lastName
+                }
             }
         ]
     }
 
+    const jsonData = JSON.stringify(data);
 
-    // const data = {
-    //     member : {
-    //         email_address : email,
-    //         status : "subscribed",
-    //         merge_fields : {
-    //             FNAME : firstName,
-    //             LNAME : lastName,
-    //         }
-    //     }
-    // }
+    fetch('https://us14.api.mailchimp.com/3.0/lists/27b317e5ad',{
+        method : 'POST',
+        headers : {
+            Authorization: 'auth 60c6a28576a4fc40bba8b48380b2330b-us14'
+        },
+        body: jsonData,
+    })//.then(res.statusCode === 200 ?
+    //     res.redirect( __dirname +'/success.html'):
+    //     res.redirect('/HTML/faliure.html'))
+    //     .catch(err => console.log("not again"))
 
-    // var jsonData = JSON.stringify(data);
-
-    // // the us14 in the url below is from the end of that api key -> it represents the server
-    // var url = "https://us14.api.mailchimp.com/3.0/lists/27b317e5ad";
-
-    // // now since we have to post the user data to the mailchimp's server, we are using post in the options [OR SO I THINK :/]
-    // var options = {
-    //     method : "POST",
-    //     auth : firstName+":60c6a28576a4fc40bba8b48380b2330b-us14"+"/members",
-    // }
-
-    // const request = https.request(url,options,function(response){
-    //     response.on("data", function (data) {
-    //         console.log(JSON.parse(data))
-    //     })
-    // })
-
-    // request.write(jsonData);
-    // request.end();
-
-    addMember();
-
+ 
 })
 
 app.listen(3000,function(){

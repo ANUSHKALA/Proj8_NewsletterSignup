@@ -21,6 +21,7 @@
     "body-parser": "^1.19.2",
     "express.js": "^1.0.0",
     "mailchimp": "^1.2.1",
+    "node-fetch": "^2.6.1",
     "request": "^2.88.2"
   }
 }
