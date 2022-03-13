@@ -46,13 +46,17 @@ app.post("/post",(req,res) => {
                 FNAME : user.firstName,
                 LNAME :user.lastName,
             }
-        });  
+        });
         res.sendFile(__dirname+"/HTML/success.html");
         console.log("FINALLY, it worked!" )
     } 
 
-    addContact().catch(err => res.sendFile(__dirname+"/HTML/faliure.html"));
+    addContact().catch(err => console.log(err));
 
+})
+
+app.post("/faliure",function (req,res){
+    res.redirect("/")
 })
 
 app.listen(3000,function(){
