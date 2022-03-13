@@ -4,9 +4,7 @@ const bodyParser = require("body-parser");
 // const fetch = require("node-fetch");
 // const request = require("request");
 // const https = require("https");
-
-
-const path = require("path");
+// const path = require("path");
 
 const app = express();
 
@@ -53,7 +51,7 @@ app.post("/post",(req,res) => {
         console.log("FINALLY, it worked!" )
     } 
 
-    addContact().catch(err => console.log(err));
+    addContact().catch(err => res.sendFile(__dirname+"/HTML/faliure.html"));
 
 })
 
